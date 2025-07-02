@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+.page-nav {
+    background: #2d3748;
+    padding: 20px;
+    text-align: center;
+}
+.page-nav h1 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.nav-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    background: #4a5568;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+.nav-btn:hover {
+    background: #667eea;
+    transform: translateY(-2px);
+}
+.nav-btn.active {
+    background: #667eea;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+.wireframe-content {
+    padding: 40px;
+}
+.card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+.form-box {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 40px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: white;
+}
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    color: #2d3748;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4a5568;
+    font-weight: 500;
+}
+.form-input {
+    width: 100%;
+    height: 45px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0 15px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+.form-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+.btn-primary {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.login-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+} 
