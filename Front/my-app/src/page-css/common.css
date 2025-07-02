@@ -64,9 +64,10 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 .card-title {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
     color: #2d3748;
+    padding-top: 20px;
     margin-bottom: 15px;
 }
 .form-box {
@@ -137,6 +138,3 @@ body {
     display: table;
     clear: both;
 }
-.login-bg {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-} 

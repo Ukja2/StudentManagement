@@ -1,5 +1,6 @@
 import React from 'react';
 import '../page-css/common.css';
+import '../page-css/Profile.css'; // 프로필 페이지 전용 CSS
 import StudentTab from './StudentTab'; // 학생 전용 탭 컴포넌트
 
 const Profile = () => {
@@ -15,10 +16,11 @@ const Profile = () => {
   return (
     <div className="profile-bg">
 
-        <StudentTab /> {/* 학생 전용 탭 컴포넌트 */}
+        
         
         <div className="card">
-          <div className="card-title">👤 개인정보</div>
+            <StudentTab /> {/* 학생 전용 탭 컴포넌트 */}
+          <div className="card-title">학생 프로필</div>
           <div className="grid-2">
             <div className="form-group">
               <label className="form-label">이름</label>

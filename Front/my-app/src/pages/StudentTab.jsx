@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../page-css/StudentTab.css'; 
 
 function StudentTab() {
     const navigate = useNavigate();
@@ -23,35 +24,18 @@ function StudentTab() {
 
     return (
         <div className="studenttab-bg">
-            <h2>학생 전용 탭</h2>
-
             {/* 네비게이션 버튼들 */}
             <div className="student-tab-nav">
-                <button
-                    className="student-tab-item"
-                    onClick={handleTabClickProfile}
-                >
+                <button className="student-tab-item">
                     학생 프로필
                 </button>
-
-                <button
-                    className="student-tab-item"
-                    onClick={handleTabClickEnroll}
-                >
+                <button className="student-tab-item">
                     수강신청
                 </button>
-
-                <button
-                    className="student-tab-item"
-                    onClick={handleTabClickCheck}
-                >
+                <button className="student-tab-item">
                     수강확인
                 </button>
-
-                <button
-                    className="student-tab-item"
-                    onClick={handleTabClickView}
-                >
+                <button className="student-tab-item">
                     성적확인
                 </button>
             </div>
