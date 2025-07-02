@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../page-css/common.css';
+import '../page-css/Login.css';
 import StudentTab from './StudentTab';
 
 function LoginForm() {
@@ -64,8 +65,8 @@ function LoginForm() {
                         </select>
                     </div>
                     <button type="button" className="btn-primary" onClick={handleLoginClick}>로그인</button>
-                    <div style={{ textAlign: 'center', marginTop: 20 }}>
-                        <a href="#" style={{ color: '#667eea' }}>회원가입</a>
+                    <div className='signup-link'>
+                        <a href="#" >회원가입</a>
                     </div>
                 </form>
             </div>
