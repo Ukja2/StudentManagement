@@ -1,11 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
+import Login from './pages/Login.jsx';  // 로그인 페이지
 
 function App() {
   return (
-    <div>
-      Hello, World!
-    </div>
+    <Router>
+      <Routes>
+        {/* "/" 경로에 로그인 페이지를 렌더링 */}
+        <Route path="/" element={<Login />} /> {/* 로그인 페이지 */}
+        
+      </Routes>
+    </Router>
   );
 }
 
