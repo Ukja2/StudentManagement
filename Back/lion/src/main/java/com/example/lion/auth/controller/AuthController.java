@@ -1,6 +1,6 @@
-package com.example.lion.controller;
+package com.example.lion.auth.controller;
 
-import com.example.lion.service.AuthService;
+import com.example.lion.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.example.lion.dto;
+package com.example.lion.auth.dto;
 
 import lombok.Data;
 
