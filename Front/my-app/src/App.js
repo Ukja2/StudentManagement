@@ -7,6 +7,7 @@ import LectureEnroll from './pages/LectureEnroll.jsx'; // 수강신청 페이지
 import LectureView from './pages/LectureView.jsx'; // 수강확인 페이지
 import LectureGrade from './pages/LectureGrade.jsx'; // 성적 확인 페이지
 import LectureRegister from './ProfessorPages/LectureRegister.jsx'; // 교수용 강의 등록 페이지
+import GradeInput from './ProfessorPages/GradeInput.jsx';
 
 
 function App() {
@@ -19,8 +20,9 @@ function App() {
           <Route path="/profile" element={<Profile />} /> {/* 학생 프로필 페이지 */}
           <Route path="/LectureEnroll" element={<LectureEnroll />} /> {/* 수강신청 페이지 */}
           <Route path="/LectureView" element={<LectureView />} /> {/* 수강확인 페이지 */}
-          <Route path="/grade-view" element={<LectureGrade />} />
-          <Route path="/LectureRegister" element={<LectureRegister />} />
+          <Route path="/grade-view" element={<LectureGrade />} /> {/* 성적 확인 페이지 */}
+          <Route path="/LectureRegister" element={<LectureRegister />} /> {/* 교수용 강의 등록 페이지 */}
+          <Route path="/GradeInput" element={<GradeInput />} /> {/* 교수용 성적 입력 페이지 */}
         </Routes>
       </Router>
     </CourseProvider>
