@@ -1,6 +1,6 @@
-// 📂 LectureRegister.jsx
 import React, { useState } from 'react';
 import '../ProfessorPages-css/LectureRegister.css'; 
+import ProfessorTab from './ProfessorTab'; 
 
 function LectureRegister() {
   const [code, setCode] = useState('');
@@ -23,7 +23,8 @@ function LectureRegister() {
   return (
     <div className="enroll-bg"> {/* 중앙 정렬용 */}
       <div className="lecture-register-card">
-        <h2 className="form-title">📚 수강 등록</h2>
+        <ProfessorTab />
+        <h2 className="form-title">수강 등록</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="form-label">과목 코드</label>
@@ -64,6 +65,8 @@ function LectureRegister() {
               className="form-input"
               type="number"
               value={credit}
+              max="3" //최대학점 및 최소학점 제한
+              min="1"
               onChange={(e) => setCredit(e.target.value)}
               required
             />
