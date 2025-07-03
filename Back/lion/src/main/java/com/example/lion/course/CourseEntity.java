@@ -1,8 +1,11 @@
 package com.example.lion.course;
 
+import com.example.lion.enrollment.EnrollmentEntity;
 import com.example.lion.professor.ProfessorEntity;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "course")
@@ -26,7 +29,7 @@ public class CourseEntity {
     @JoinColumn(name = "professorId")
     private ProfessorEntity professor;
 
-    @OneToOne(mappedBy = "course_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "course_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EnrollmentEntity> enrollment;
 
     public CourseDTO toDTO() {
@@ -34,6 +37,7 @@ public class CourseEntity {
                 .courseId(courseId)
                 .courseCode(courseCode)
                 .courseName(courseName)
+                .professor(professor)
                 .build();
     }
 }

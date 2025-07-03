@@ -1,7 +1,10 @@
 package com.example.lion.professor;
 
+import com.example.lion.student.StudentEntity;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "professor")
@@ -13,27 +16,30 @@ import lombok.*;
 public class ProfessorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long professorId;
 
     @Column(nullable = false)
-    private String name;
+    private String professorName;
 
     @Column(nullable = false)
-    private String password;
+    private String professorPassword;
 
     @Column(nullable = false, unique = true)
-    private String email;
+    private String professorEmail;
 
     @Column(nullable = false)
-    private String department;
+    private String professorDepartment;
+
+    @OneToMany(mappedBy = "professorId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StudentEntity> students;
 
     public ProfessorDTO toDTO() {
         return ProfessorDTO.builder()
-                .id(id)
-                .name(name)
-                .password(password)
-                .email(email)
-                .department(department)
+                .professorId(professorId)
+                .professorName(professorName)
+                .professorPassword(professorPassword)
+                .professorEmail(professorEmail)
+                .professorDepartment(professorDepartment)
                 .build();
     }
 }
