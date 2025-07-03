@@ -1,10 +1,8 @@
 package com.example.lion.enrollment;
 
-import com.example.lion.Student.StudentEntity;
+import com.example.lion.student.StudentEntity;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
 
 @Entity
 @Table

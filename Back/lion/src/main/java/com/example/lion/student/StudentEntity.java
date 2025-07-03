@@ -1,11 +1,9 @@
-package com.example.lion.Student;
+package com.example.lion.student;
 
 import com.example.lion.enrollment.EnrollmentEntity;
-import jakarta.annotation.Resource;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity

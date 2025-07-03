@@ -1,4 +1,4 @@
-package com.example.lion.Student;
+package com.example.lion.student;
 
 import org.springframework.stereotype.Service;
 
