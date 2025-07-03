@@ -11,15 +11,15 @@ function StudentTab() {
     };
 
     const handleTabClickEnroll = () => {
-        navigate('/LectureEnroll'); // 너가 정한 파일명 기준으로!
+        navigate('/LectureEnroll'); 
     };
 
     const handleTabClickCheck = () => {
-        navigate('/course-check'); // 수강 확인 페이지 (아직 없으면 나중에 만들면 됨)
+        navigate('/LectureView'); 
     };
 
     const handleTabClickView = () => {
-        navigate('/grade-view'); // 성적 확인 페이지 (나중에 만들면 됨)
+        navigate('/grade-view'); 
     };
 
     return (

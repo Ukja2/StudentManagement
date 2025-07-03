@@ -13,13 +13,17 @@ body {
 
 /*각 컴포넌트 메인 컨테이너 내부 요소(card) 중앙정렬용*/
 .enroll-bg,
-.profile-bg {
+.profile-bg,
+.lectureview-bg,
+.lecturegrade-bg {
     display: flex;
     justify-content: center;  
     align-items: center;      
     min-height: 100vh;
     padding: 40px 20px;
 }
+
+
 
 .container {
     max-width: 1400px;

@@ -6,9 +6,9 @@ import { CourseContext } from '../context/CourseContext'; // 수강신청 목록
 // 수강 가능한 과목 리스트 (임시 더미 데이터)
 // 나중에는 이 부분을 서버(API)에서 가져오면 됨!
 const courseList = [
-  { id: 1, code: '10001-01', name: '자료구조', professor: '주홍택', credit: 3 },
-  { id: 2, code: '20002-01', name: '운영체제', professor: '이덕우', credit: 3 },
-  { id: 3, code: '30003-01', name: '네트워크', professor: '사공상욱', credit: 3 },
+  { id: 1, code: '10001-01', name: '자료구조', professor: '주홍택', credit: 3  ,grade: 'A+'  },
+  { id: 2, code: '20002-01', name: '운영체제', professor: '이덕우', credit: 3 ,grade: 'A+'},
+  { id: 3, code: '30003-01', name: '네트워크', professor: '사공상욱', credit: 3 ,grade: 'A+'}
 ];
 
 function LectureEnroll() {
