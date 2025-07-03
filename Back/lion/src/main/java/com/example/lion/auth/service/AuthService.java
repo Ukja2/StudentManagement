@@ -1,37 +1,51 @@
 package com.example.lion.auth.service;
 
 import com.example.lion.professor.ProfessorEntity;
+import com.example.lion.professor.ProfessorRepository;
 import com.example.lion.student.StudentEntity;
 import com.example.lion.student.StudentRepository;
-import com.example.lion.professor.ProfessorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class AuthService {
-    private final ProfessorRepository professorRepository;
+
     private final StudentRepository studentRepository;
+    private final ProfessorRepository professorRepository;
 
-    public void registerStudent(String userName, String password, String email, String department, String studentNumber) {
-        ProfessorEntity user = new ProfessorEntity();
-        user.setName(userName);
-        user.setPassword(password);
-        user.setEmail(email);
-        user.setDepartment(department);
-        user.setRole(ProfessorEntity.Role.STUDENT);
-        ProfessorEntity savedUser = professorRepository.save(user);
+    public void registerStudent(String name, String email, String department, String number, String password) {
+        StudentEntity student = StudentEntity.builder()
+                .studentName(name)
+                .studentEmail(email)
+                .studentDepartment(department)
+                .studentNumber(number)
+                .studentPassword(password)
+                .build();
 
-        StudentEntity student = new StudentEntity();
-        student.setUser(savedUser);
-        student.setStudentId(savedUser.getId());
-        student.setStudentNumber(studentNumber);
         studentRepository.save(student);
     }
 
-    public boolean login(String userName, String password) {
-        return professorRepository.findByUserName(userName)
-                .map(user -> user.getPassword().equals(password))
-                .orElse(false);
+    public void registerProfessor(String name, String email, String department, String number, String password) {
+        ProfessorEntity professor = ProfessorEntity.builder()
+                .name(name)
+                .email(email)
+                .department(department)
+                .password(password)
+                .build();
+
+        professorRepository.save(professor);
+    }
+
+    public boolean loginStudent(String email, String password) {
+        Optional<StudentEntity> studentOpt = studentRepository.findByStudentEmail(email);
+        return studentOpt.map(student -> student.getStudentPassword().equals(password)).orElse(false);
+    }
+
+    public boolean loginProfessor(String email, String password) {
+        Optional<ProfessorEntity> professorOpt = professorRepository.findByEmail(email);
+        return professorOpt.map(prof -> prof.getPassword().equals(password)).orElse(false);
     }
 }

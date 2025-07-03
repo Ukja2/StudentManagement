@@ -29,7 +29,11 @@ public class StudentEntity {
     private String studentEmail;
 
     @Column
-    private Long studentYear;
+    private String studentPassword;
+
+    @Column
+    private String studentDepartment;
+
 
     @OneToMany(mappedBy = "student_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EnrollmentEntity> enrollment;
@@ -42,7 +46,8 @@ public class StudentEntity {
                 .studentName(studentName)
                 .studentNumber(studentNumber)
                 .studentEmail(studentEmail)
-                .studentYear(studentYear)
+                .studentPassword(studentPassword)
+                .studentDepartment(studentDepartment)
                 .build();
     }
 }

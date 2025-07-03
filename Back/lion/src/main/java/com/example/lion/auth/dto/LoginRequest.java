@@ -1,22 +1,9 @@
 package com.example.lion.auth.dto;
 
+import lombok.Data;
+
+@Data
 public class LoginRequest {
-    private String id;
+    private String email;       // 로그인 ID로 email을 사용
     private String password;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
