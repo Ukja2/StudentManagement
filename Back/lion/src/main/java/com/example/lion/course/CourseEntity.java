@@ -1,0 +1,39 @@
+package com.example.lion.course;
+
+import com.example.lion.professor.ProfessorEntity;
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "course")
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class CourseEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long courseId;
+
+    @Column(nullable = false, unique = true)
+    private Long courseCode;
+
+    @Column(nullable = false, unique = true)
+    private String courseName;
+
+    @ManyToOne
+    @JoinColumn(name = "professorId")
+    private ProfessorEntity professor;
+
+    @OneToOne(mappedBy = "course_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EnrollmentEntity> enrollment;
+
+    public CourseDTO toDTO() {
+        return CourseDTO.builder()
+                .courseId(courseId)
+                .courseCode(courseCode)
+                .courseName(courseName)
+                .build();
+    }
+}
