@@ -1,4 +1,4 @@
-package com.example.lion.user;
+package com.example.lion.professor;
 
 import lombok.*;
 
@@ -7,11 +7,10 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
-    private Long userId;
-    private String userName;
+public class ProfessorDTO {
+    private Long id;
+    private String name;
     private String password;
     private String email;
     private String department;
-    private UserEntity.UserRole role;
 }
