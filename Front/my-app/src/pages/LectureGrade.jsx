@@ -12,7 +12,7 @@ function LectureGrade() {
         <StudentTab />
         <div className="card-title">성적 확인</div>
 
-        {enrolledCourses.length === 0 ? (
+        {enrolledCourses.length === 0 ?     (
           <p>😅 아직 수강한 과목이 없습니다.</p>
         ) : (
           <ul>

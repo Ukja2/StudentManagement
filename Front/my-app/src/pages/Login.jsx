@@ -18,7 +18,8 @@ function LoginForm() {
             }
         } else if (userType === '교수') {
             if (userId === 'professor' && password === 'professor123') {
-                // 교수용 페이지로 이동 등
+                navigate('/LectureRegister');
+                
             }
         }
     };
