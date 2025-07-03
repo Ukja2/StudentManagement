@@ -1,5 +1,6 @@
 package com.example.lion.course;
 
+import com.example.lion.professor.ProfessorEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +12,11 @@ import java.util.stream.Collectors;
 public class CourseService {
     private final CourseRepository courseRepository;
 
-    public CourseDTO addCourse(Long courseCode, String courseName) {
+    public CourseDTO addCourse(Long courseCode, String courseName, ProfessorEntity professor) {
         return courseRepository.save(CourseEntity.builder()
                         .courseCode(courseCode)
                 .courseName(courseName)
+                        .professor(professor)
                 .build())
                 .toDTO();
     }
@@ -31,6 +33,7 @@ public class CourseService {
                 .orElseThrow(() -> new RuntimeException("Course Not Found"));
         course.setCourseCode(courseDTO.getCourseCode());
         course.setCourseName(courseDTO.getCourseName());
+        course.setProfessor(courseDTO.getProfessor());
         return courseRepository.save(course).toDTO();
     }
 
