@@ -22,9 +22,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 //	implementation 'org.springframework.boot:spring-boot-starter-security'
-
-	// DB (메모리용 H2, 필요에 따라 mysql로 교체 가능)
-	runtimeOnly 'com.h2database:h2'
+	implementation 'mysql:mysql-connector-java:8.0.33'
 
 	// 테스트 관련
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
