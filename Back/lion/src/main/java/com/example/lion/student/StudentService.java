@@ -1,40 +1,25 @@
 package com.example.lion.student;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
-import static com.fasterxml.jackson.databind.util.ClassUtil.name;
 
 @Service
+@RequiredArgsConstructor
 public class StudentService {
     private final StudentRepository studentRepository;
 
-    public StudentService(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
-    }
-
-    public StudentEntity addStudent(String studentName, String studentNumber, String studentEmail) {
+    public StudentEntity addStudent(String studentName, String studentPassword, String studentEmail, String department) {
         return studentRepository.save(StudentEntity.builder()
                 .studentName(studentName)
-                .studentNumber(studentNumber)
                 .studentEmail(studentEmail)
+                .studentPassword(studentPassword)
+                .department(department)
                 .build());
     }
 
-    public List<StudentEntity> getAllStudents() {
-        return studentRepository.findAll();
-    }
-
     public StudentEntity getStudent(Long studentId) {
-        return studentRepository.findById(studentId).get();
+        return studentRepository.findById(studentId)
+                .orElseThrow(()-> new RuntimeException("Student not found"));
     }
-
-    public StudentDTO getProfile(Long studentId) {
-        StudentEntity student = studentRepository.findById(studentId)
-                .orElseThrow(() -> new IllegalArgumentException("해당 학생 존재X"));
-        return student.toDTO();
-    }
-
-
 }

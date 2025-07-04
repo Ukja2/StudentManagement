@@ -23,13 +23,13 @@ public class StudentEntity {
     private String studentName;
 
     @Column
-    private String studentNumber;
-
-    @Column
     private String studentEmail;
 
     @Column
-    private Long studentYear;
+    private String studentPassword;
+
+    @Column
+    private String department;
 
     @OneToMany(mappedBy = "student_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EnrollmentEntity> enrollment;
@@ -40,9 +40,9 @@ public class StudentEntity {
         return StudentDTO.builder()
                 .studentId(studentId)
                 .studentName(studentName)
-                .studentNumber(studentNumber)
                 .studentEmail(studentEmail)
-                .studentYear(studentYear)
+                .studentPassword(studentPassword)
+                .department(department)
                 .build();
     }
 }
