@@ -14,12 +14,10 @@ public class ProfessorController {
     private final ProfessorService professorService;
 
     @PostMapping
-    public ResponseEntity<ProfessorDTO> saveProfessor(
-            @RequestParam String professorName,
-            @RequestParam String professorPassword,
-            @RequestParam String professorEmail,
-            @RequestParam String professorDepartment
-    ) {
+    public ResponseEntity<ProfessorDTO> saveProfessor(@RequestParam String professorName,
+                                                      @RequestParam String professorPassword,
+                                                      @RequestParam String professorEmail,
+                                                      @RequestParam String professorDepartment) {
         ProfessorDTO professor = professorService.addProfessor(professorName, professorPassword, professorEmail, professorDepartment);
         return ResponseEntity.status(HttpStatus.CREATED).body(professor);
     }
