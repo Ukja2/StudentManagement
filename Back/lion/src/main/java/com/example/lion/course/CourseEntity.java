@@ -1,6 +1,6 @@
 package com.example.lion.course;
 
-import com.example.lion.enrollment.EnrollmentEntity;
+import com.example.lion.enrollment.EnrollermentEntity;
 import com.example.lion.professor.ProfessorEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,10 +17,10 @@ import java.util.List;
 public class CourseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long courseId;
+    private java.lang.Long courseId;
 
     @Column(nullable = false, unique = true)
-    private Long courseCode;
+    private java.lang.Long courseCode;
 
     @Column(nullable = false, unique = true)
     private String courseName;
@@ -30,7 +30,7 @@ public class CourseEntity {
     private ProfessorEntity professor;
 
     @OneToMany(mappedBy = "course_id", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<EnrollmentEntity> enrollment;
+    private List<EnrollermentEntity> enrollment;
 
     public CourseDTO toDTO() {
         return CourseDTO.builder()

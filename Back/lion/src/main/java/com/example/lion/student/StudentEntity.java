@@ -1,6 +1,6 @@
 package com.example.lion.student;
 
-import com.example.lion.enrollment.EnrollmentEntity;
+import com.example.lion.enrollment.EnrollermentEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,7 +17,7 @@ import java.util.List;
 public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long studentId;
+    private java.lang.Long studentId;
 
     @Column
     private String studentName;
@@ -29,10 +29,10 @@ public class StudentEntity {
     private String studentEmail;
 
     @Column
-    private Long studentYear;
+    private java.lang.Long studentYear;
 
     @OneToMany(mappedBy = "student_id", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<EnrollmentEntity> enrollment;
+    private List<EnrollermentEntity> enrollment;
 
 
 
