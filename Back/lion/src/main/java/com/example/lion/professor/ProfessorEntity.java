@@ -27,12 +27,16 @@ public class ProfessorEntity {
     @Column(nullable = false)
     private String department;
 
+    @Column(nullable = false)
+    private String number;
+
     public ProfessorDTO toDTO() {
         return ProfessorDTO.builder()
                 .id(id)
                 .name(name)
                 .password(password)
                 .email(email)
+                .number(number)
                 .department(department)
                 .build();
     }

@@ -24,4 +24,5 @@ public class EnrollmentEntity {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private CourseEntity course;
+
 }

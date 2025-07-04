@@ -3,6 +3,7 @@ package com.example.lion.professor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,11 +22,27 @@ public class ProfessorService {
                 .toDTO();
     }
 
+//    public List<ProfessorDTO> getAllUser() {
+//        return professorRepository.findAll()
+//                .stream()
+//                .map(ProfessorEntity::toDTO)
+//                .collect(Collectors.toList());
+//    }
+
     public List<ProfessorDTO> getAllUser() {
-        return professorRepository.findAll()
-                .stream()
-                .map(ProfessorEntity::toDTO)
-                .collect(Collectors.toList());
+        List<ProfessorEntity> entity = professorRepository.findAll();
+        List<ProfessorDTO> result = new ArrayList<ProfessorDTO>();
+
+        for(int i = 0; i < entity.size(); i++){
+            ProfessorDTO dto = new ProfessorDTO();
+
+            dto.setName(entity.get(i).getName());
+            dto.setPassword(entity.get(i).getPassword());
+            dto.setEmail(entity.get(i).getEmail());
+            dto.setDepartment(entity.get(i).getDepartment());
+            result.add(dto);
+        }
+        return result;
     }
 
     public ProfessorDTO getUser(Long userId) {
@@ -43,6 +60,10 @@ public class ProfessorService {
         user.setDepartment(professorDTO.getDepartment());
         return professorRepository.save(user).toDTO();
     }
+
+//    public List<GradeDTO> getAllGrade() {
+//        return gradeRepository
+//    }
 
     public void deleteUser(Long userId) {
         professorRepository.deleteById(userId);

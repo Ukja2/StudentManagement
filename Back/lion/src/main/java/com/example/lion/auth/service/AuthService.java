@@ -33,6 +33,7 @@ public class AuthService {
                 .name(name)
                 .email(email)
                 .department(department)
+                .number(number)
                 .password(password)
                 .build();
 

@@ -1,10 +1,10 @@
 package com.example.lion.auth.controller;
 
 import com.example.lion.auth.dto.LoginRequest;
+import com.example.lion.auth.dto.RegisterRequest;
 import com.example.lion.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
@@ -13,25 +13,25 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/register/student")
-    public String registerStudent(@RequestBody Map<String, String> body) {
+    public String registerStudent(@RequestBody RegisterRequest request) {
         authService.registerStudent(
-                body.get("userName"),
-                body.get("password"),
-                body.get("email"),
-                body.get("department"),
-                body.get("studentNumber")
+                request.getName(),
+                request.getEmail(),
+                request.getDepartment(),
+                request.getNumber(),
+                request.getPassword()
         );
         return "학생 등록 완료";
     }
 
     @PostMapping("/register/professor")
-    public String registerProfessor(@RequestBody Map<String, String> body) {
+    public String registerProfessor(@RequestBody RegisterRequest request) {
         authService.registerProfessor(
-                body.get("userName"),
-                body.get("password"),
-                body.get("email"),
-                body.get("department"),
-                body.get("professorNumber")
+                request.getName(),
+                request.getEmail(),
+                request.getDepartment(),
+                request.getNumber(),
+                request.getPassword()
         );
         return "교수 등록 완료";
     }
