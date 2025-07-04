@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../page-css/common.css';
 import '../page-css/Login.css';
-import StudentTab from './StudentTab';
+import { Link } from 'react-router-dom';
+
 
 function LoginForm() {
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ function LoginForm() {
         } else if (userType === '교수') {
             if (userId === 'professor' && password === 'professor123') {
                 navigate('/LectureRegister');
-                
+
             }
         }
     };
@@ -66,8 +67,8 @@ function LoginForm() {
                         </select>
                     </div>
                     <button type="button" className="btn-primary" onClick={handleLoginClick}>로그인</button>
-                    <div className='signup-link'>
-                        <a href="#" >회원가입</a>
+                    <div className="signup-link">
+                        <Link to="/SignupPage">회원가입</Link>
                     </div>
                 </form>
             </div>
