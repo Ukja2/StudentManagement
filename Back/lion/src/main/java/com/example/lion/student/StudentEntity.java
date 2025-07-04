@@ -7,7 +7,7 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "student")
+@Table
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,13 +23,13 @@ public class StudentEntity {
     private String studentName;
 
     @Column
+    private String studentNumber;
+
+    @Column
     private String studentEmail;
 
     @Column
-    private String studentPassword;
-
-    @Column
-    private String department;
+    private java.lang.Long studentYear;
 
     @OneToMany(mappedBy = "student_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EnrollermentEntity> enrollment;
@@ -40,9 +40,9 @@ public class StudentEntity {
         return StudentDTO.builder()
                 .studentId(studentId)
                 .studentName(studentName)
+                .studentNumber(studentNumber)
                 .studentEmail(studentEmail)
-                .studentPassword(studentPassword)
-                .department(department)
+                .studentYear(studentYear)
                 .build();
     }
 }

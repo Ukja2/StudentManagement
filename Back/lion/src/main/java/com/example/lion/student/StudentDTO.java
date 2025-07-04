@@ -11,8 +11,7 @@ import lombok.*;
 public class StudentDTO {
     private Long studentId;
     private String studentName;
+    private String studentNumber;
     private String studentEmail;
-    private String studentPassword;
-    private String department;
-
+    private Long studentYear;
 }

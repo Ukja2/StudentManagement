@@ -3,7 +3,6 @@ package com.example.lion.professor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,14 +21,11 @@ public class ProfessorService {
                 .toDTO();
     }
 
-    public List<ProfessorDTO> getAllUser() {
-        List<ProfessorEntity> a = new ArrayList<ProfessorEntity>();
-        List<ProfessorDTO> b = new ArrayList<>();
-        for (int i = 0; i<=a.size(); i++) {
-            a = professorRepository.findAll();
-            b.add(a.get(i).toDTO());
-        }
-        return b;
+    public List<ProfessorDTO> getAllProfessor() {
+        return professorRepository.findAll()
+                .stream()
+                .map(ProfessorEntity::toDTO)
+                .collect(Collectors.toList());
     }
 
     public ProfessorDTO getProfessor(Long professorId) {
