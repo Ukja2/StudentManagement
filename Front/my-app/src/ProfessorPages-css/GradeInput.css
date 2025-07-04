@@ -1,0 +1,127 @@
+/* 전체 감싸는 컨테이너 */
+.grade-container {
+  padding: 30px;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+/* 페이지 제목 */
+.grade-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2d3748;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 소제목 (강의 리스트, 학생 리스트) */
+.grade-subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #4a5568;
+  text-align: center;
+}
+
+/* 강의 리스트 ul */
+.lecture-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+/* 강의 아이템 li */
+.lecture-item {
+  margin-bottom: 10px;
+}
+
+/* 강의 버튼 */
+.lecture-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.lecture-button:hover {
+  background-color: #5a63b0;
+}
+
+/* 학생 리스트 */
+.student-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+/* 학생 하나당 한 줄 */
+.student-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #f7fafc;
+}
+
+/* 학생 이름 */
+.student-name {
+  flex: 1;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+/* 점수 입력 */
+.score-input {
+  width: 80px;
+  padding: 6px 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* 성적 등록 버튼 */
+.submit-btn {
+  padding: 6px 12px;
+  background-color: #4a5568;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.submit-btn:hover {
+  background-color: #2d3748;
+}
+
+/* 돌아가기 버튼 */
+.back-btn {
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #e2e8f0;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: #cbd5e0;
+}
+
+.grade-title{
+    margin-top: 20px;
+}

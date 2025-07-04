@@ -1,11 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { CourseProvider } from './context/CourseContext';
+import Login from './pages/Login.jsx';  // 로그인 페이지
+import Profile from './pages/Profile.jsx'; // 학생 프로필 페이지
+import LectureEnroll from './pages/LectureEnroll.jsx'; // 수강신청 페이지
+import LectureView from './pages/LectureView.jsx'; // 수강확인 페이지
+import LectureGrade from './pages/LectureGrade.jsx'; // 성적 확인 페이지
+import LectureRegister from './ProfessorPages/LectureRegister.jsx'; // 교수용 강의 등록 페이지
+import GradeInput from './ProfessorPages/GradeInput.jsx';
+import SignupPage from './pages/SignupPage.jsx';// 회원가입 페이지
+
 
 function App() {
   return (
-    <div>
-      Hello, World!
-    </div>
+    <CourseProvider>
+      <Router>
+        <Routes>
+          {/* "/" 경로에 로그인 페이지를 렌더링 */}
+          <Route path="/" element={<Login />} /> {/* 로그인 페이지 */}
+          <Route path="/profile" element={<Profile />} /> {/* 학생 프로필 페이지 */}
+          <Route path="/LectureEnroll" element={<LectureEnroll />} /> {/* 수강신청 페이지 */}
+          <Route path="/LectureView" element={<LectureView />} /> {/* 수강확인 페이지 */}
+          <Route path="/grade-view" element={<LectureGrade />} /> {/* 성적 확인 페이지 */}
+          <Route path="/LectureRegister" element={<LectureRegister />} /> {/* 교수용 강의 등록 페이지 */}
+          <Route path="/GradeInput" element={<GradeInput />} /> {/* 교수용 성적 입력 페이지 */}
+          <Route path="/SignupPage" element={<SignupPage />} /> {/* 회원가입 페이지 */}
+        </Routes>
+      </Router>
+    </CourseProvider>
   );
 }
 
