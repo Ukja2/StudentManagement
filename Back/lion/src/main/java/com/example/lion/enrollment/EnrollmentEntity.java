@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table
+@Table(name = "Enrollment")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,4 +24,15 @@ public class EnrollmentEntity {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private CourseEntity course;
+
+    @OneToOne(mappedBy = "enrollmentId")
+    private GradeEntity grade;
+
+    public EnrollmentDTO toDTO() {
+        return EnrollmentDTO.builder()
+                .enrollmentId(enrollmentId)
+                .studentId(student.getStudentId())
+                .courseId(course.getCourseId())
+                .build();
+    }
 }
