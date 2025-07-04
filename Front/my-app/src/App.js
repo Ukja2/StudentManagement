@@ -13,12 +13,6 @@ import SignupPage from './pages/SignupPage.jsx';// 회원가입 페이지
 
 function App() {
   return (
-<<<<<<< HEAD
-    <div>
-      Hello, World!
-      <div>branch test</div>
-    </div>
-=======
     <CourseProvider>
       <Router>
         <Routes>
@@ -34,7 +28,6 @@ function App() {
         </Routes>
       </Router>
     </CourseProvider>
->>>>>>> origin/main
   );
 }
 
