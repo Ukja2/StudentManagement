@@ -1,6 +1,8 @@
 package com.example.lion.enrollment;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface EnrollmentRepository extends JpaRepository<EnrollermentEntity, Integer> {
+@Repository
+public interface EnrollmentRepository extends JpaRepository<EnrollmentEntity, Long> {
 }
