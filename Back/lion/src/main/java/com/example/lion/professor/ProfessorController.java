@@ -8,43 +8,41 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/professor")
 @RequiredArgsConstructor
 public class ProfessorController {
     private final ProfessorService professorService;
 
     @PostMapping
-    public ResponseEntity<ProfessorDTO> saveUser(
-            @RequestParam String name,
-            @RequestParam String password,
-            @RequestParam String email,
-            @RequestParam String department
-    ) {
-        ProfessorDTO user = professorService.addUser(name, password, email, department);
-        return ResponseEntity.status(HttpStatus.CREATED).body(user);
+    public ResponseEntity<ProfessorDTO> saveProfessor(@RequestParam String professorName,
+                                                      @RequestParam String professorPassword,
+                                                      @RequestParam String professorEmail,
+                                                      @RequestParam String professorDepartment) {
+        ProfessorDTO professor = professorService.addProfessor(professorName, professorPassword, professorEmail, professorDepartment);
+        return ResponseEntity.status(HttpStatus.CREATED).body(professor);
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<ProfessorDTO>> getAllUser() {
-        List<ProfessorDTO> users = professorService.getAllUser();
-        return ResponseEntity.ok(users);
+    public ResponseEntity<List<ProfessorDTO>> getAllProfessor() {
+        List<ProfessorDTO> professor = professorService.getAllProfessor();
+        return ResponseEntity.ok(professor);
     }
 
     @GetMapping
-    public ResponseEntity<ProfessorDTO> getUser(@RequestParam Long id) {
-        ProfessorDTO user = professorService.getUser(id);
-        return ResponseEntity.ok(user);
+    public ResponseEntity<ProfessorDTO> getProfessor(@RequestParam Long professorId) {
+        ProfessorDTO professor = professorService.getProfessor(professorId);
+        return ResponseEntity.ok(professor);
     }
 
     @PatchMapping
-    public ResponseEntity<ProfessorDTO> updateUser(@RequestBody ProfessorDTO professorDTO) {
-        ProfessorDTO user = professorService.updateUser(professorDTO);
-        return ResponseEntity.ok(user);
+    public ResponseEntity<ProfessorDTO> updateProfessor(@RequestBody ProfessorDTO professorDTO) {
+        ProfessorDTO professor = professorService.updateProfessor(professorDTO);
+        return ResponseEntity.ok(professor);
     }
 
     @DeleteMapping
-    public ResponseEntity<String> deleteUser(@RequestParam Long id) {
-        professorService.deleteUser(id);
+    public ResponseEntity<String> deleteProfessor(@RequestParam Long professorId) {
+        professorService.deleteProfessor(professorId);
         return ResponseEntity.ok("삭제 성공");
     }
 }

@@ -14,4 +14,5 @@ public class EnrollmentDTO {
     private Long enrollmentId;
     private Long studentId;
     private Long courseId;
+    private EnrollermentEntity enrollmentId;
 }

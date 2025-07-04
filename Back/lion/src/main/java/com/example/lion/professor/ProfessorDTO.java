@@ -8,9 +8,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProfessorDTO {
-    private Long id;
-    private String name;
-    private String password;
-    private String email;
-    private String department;
+    private Long professorId;
+    private String professorName;
+    private String professorPassword;
+    private String professorEmail;
+    private String professorDepartment;
 }

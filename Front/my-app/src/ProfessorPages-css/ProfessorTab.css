@@ -1,0 +1,47 @@
+
+.professortab-bg {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+
+.professortab-bg h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2d3748;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.professor-tab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+.professor-tab-item {
+    padding: 12px 20px;
+    border: none;
+    background-color: #667eea;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+
+.professor-tab-item:hover {
+    background-color: #5a63b0;
+    transform: translateY(-2px);
+}
+
+
+.professor-tab-item:active {
+    background-color: #4a56a0;
+    transform: translateY(1px);
+}

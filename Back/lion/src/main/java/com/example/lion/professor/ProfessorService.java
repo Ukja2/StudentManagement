@@ -12,12 +12,12 @@ import java.util.stream.Collectors;
 public class ProfessorService {
     private final ProfessorRepository professorRepository;
 
-    public ProfessorDTO addUser(String name, String password, String email, String department) {
+    public ProfessorDTO addProfessor(String professorName, String professorPassword, String professorEmail, String professorDepartment) {
         return professorRepository.save(ProfessorEntity.builder()
-                .name(name)
-                .password(password)
-                .email(email)
-                .department(department)
+                .professorName(professorName)
+                .professorPassword(professorPassword)
+                .professorEmail(professorEmail)
+                .professorDepartment(professorDepartment)
                 .build())
                 .toDTO();
     }
@@ -32,23 +32,23 @@ public class ProfessorService {
         return b;
     }
 
-    public ProfessorDTO getUser(Long userId) {
-        ProfessorEntity user = professorRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-        return user.toDTO();
+    public ProfessorDTO getProfessor(Long professorId) {
+        ProfessorEntity professor = professorRepository.findById(professorId)
+                .orElseThrow(() -> new RuntimeException("Professor not found"));
+        return professor.toDTO();
     }
 
-    public ProfessorDTO updateUser(ProfessorDTO professorDTO) {
-        ProfessorEntity user = professorRepository.findById(professorDTO.getId())
-                .orElseThrow(() -> new RuntimeException("User not found"));
-        user.setName(professorDTO.getName());
-        user.setPassword(professorDTO.getPassword());
-        user.setEmail(professorDTO.getEmail());
-        user.setDepartment(professorDTO.getDepartment());
-        return professorRepository.save(user).toDTO();
+    public ProfessorDTO updateProfessor(ProfessorDTO professorDTO) {
+        ProfessorEntity professor = professorRepository.findById(professorDTO.getProfessorId())
+                .orElseThrow(() -> new RuntimeException("Professor not found"));
+        professor.setProfessorName(professorDTO.getProfessorName());
+        professor.setProfessorPassword(professorDTO.getProfessorPassword());
+        professor.setProfessorEmail(professorDTO.getProfessorEmail());
+        professor.setProfessorDepartment(professorDTO.getProfessorDepartment());
+        return professorRepository.save(professor).toDTO();
     }
 
-    public void deleteUser(Long userId) {
-        professorRepository.deleteById(userId);
+    public void deleteProfessor(Long professorId) {
+        professorRepository.deleteById(professorId);
     }
 }
