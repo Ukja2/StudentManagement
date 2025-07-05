@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -13,7 +12,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProfessorController {
     private final ProfessorService professorService;
-    private final ProfessorRepository professorRepository;
 
     @PostMapping
     public ResponseEntity<ProfessorDTO> saveProfessor(@RequestParam String professorName,
@@ -26,14 +24,7 @@ public class ProfessorController {
 
     @GetMapping("/all")
     public ResponseEntity<List<ProfessorDTO>> getAllProfessor() {
-        List<ProfessorEntity> entityList = professorRepository.findAll();
-        List<ProfessorDTO> dtoList = new ArrayList<>();
-
-        for (ProfessorEntity entity : entityList) {
-            dtoList.add(entity.toDTO());
-        }
-
-        return ResponseEntity.ok(dtoList);
+        return ResponseEntity.ok(professorService.getAllUser());
     }
 
 

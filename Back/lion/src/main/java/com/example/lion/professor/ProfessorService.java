@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -23,13 +22,12 @@ public class ProfessorService {
     }
 
     public List<ProfessorDTO> getAllUser() {
-        List<ProfessorEntity> a = new ArrayList<ProfessorEntity>();
-        List<ProfessorDTO> b = new ArrayList<>();
-        for (int i = 0; i<=a.size(); i++) {
-            a = professorRepository.findAll();
-            b.add(a.get(i).toDTO());
+        List<ProfessorEntity> professor = professorRepository.findAll();
+        List<ProfessorDTO> professorDTO = new ArrayList<>();
+        for (int i = 0; i<=professor.size(); i++) {
+            professorDTO.add(professor.get(i).toDTO());
         }
-        return b;
+        return professorDTO;
     }
 
     public ProfessorDTO getProfessor(Long professorId) {
