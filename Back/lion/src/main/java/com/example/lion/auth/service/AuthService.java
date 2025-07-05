@@ -13,25 +13,34 @@ public class AuthService {
     private final ProfessorRepository professorRepository;
     private final StudentRepository studentRepository;
 
-    public void registerStudent(String userName, String password, String email, String department, String studentNumber) {
-        ProfessorEntity user = new ProfessorEntity();
-        user.setName(userName);
-        user.setPassword(password);
-        user.setEmail(email);
-        user.setDepartment(department);
-        user.setRole(ProfessorEntity.Role.STUDENT);
-        ProfessorEntity savedUser = professorRepository.save(user);
-
+    public void registerStudent(String name, String password, String email, String department) {
         StudentEntity student = new StudentEntity();
-        student.setUser(savedUser);
-        student.setStudentId(savedUser.getId());
-        student.setStudentNumber(studentNumber);
+        student.setStudentName(name);
+        student.setStudentPassword(password);
+        student.setStudentEmail(email);
+        student.setStudentDepartment(department);
         studentRepository.save(student);
     }
 
-    public boolean login(String userName, String password) {
-        return professorRepository.findByUserName(userName)
-                .map(user -> user.getPassword().equals(password))
+    public void registerProfessor(String name, String password, String email, String department) {
+        ProfessorEntity professor = new ProfessorEntity();
+        professor.setProfessorName(name);
+        professor.setProfessorPassword(password);
+        professor.setProfessorEmail(email);
+        professor.setProfessorDepartment(department);
+        professorRepository.save(professor);
+    }
+
+    public boolean loginStudent(String email, String password) {
+        return studentRepository.findByStudentEmail(email)
+                .map(student -> student.getStudentPassword().equals(password))
                 .orElse(false);
     }
+
+    public boolean loginProfessor(String email, String password) {
+        return professorRepository.findByProfessorEmail(email)
+                .map(professor -> professor.getProfessorPassword().equals(password))
+                .orElse(false);
+    }
+
 }

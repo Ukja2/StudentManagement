@@ -3,6 +3,7 @@ package com.example.lion.auth.dto;
 public class LoginRequest {
     private String id;
     private String password;
+    private String role; // "student" 또는 "professor"
 
     public String getId() {
         return id;
@@ -18,5 +19,13 @@ public class LoginRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

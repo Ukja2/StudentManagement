@@ -1,12 +1,13 @@
 package com.example.lion.enrollment;
 
 import com.example.lion.course.CourseEntity;
+import com.example.lion.grade.GradeEntity;
 import com.example.lion.student.StudentEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "enrollerment")
+@Table(name = "enrollment")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,7 +26,7 @@ public class EnrollmentEntity {
     @JoinColumn(name = "course_id")
     private CourseEntity course;
 
-    @OneToOne(mappedBy = "enrollmentId")
+    @OneToOne(mappedBy = "enrollment")
     private GradeEntity grade;
 
     public EnrollmentDTO toDTO() {

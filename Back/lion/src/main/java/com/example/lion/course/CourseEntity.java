@@ -1,6 +1,5 @@
 package com.example.lion.course;
 
-import com.example.lion.enrollment.EnrollermentEntity;
 import com.example.lion.professor.ProfessorEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -30,7 +29,7 @@ public class CourseEntity {
     private ProfessorEntity professor;
 
     @OneToMany(mappedBy = "course_id", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<EnrollermentEntity> enrollment;
+    //private List<EnrollermentEntity> enrollment;
 
     public CourseDTO toDTO() {
         return CourseDTO.builder()
