@@ -1,6 +1,5 @@
 package com.example.lion.course;
 
-import com.example.lion.professor.ProfessorEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +14,9 @@ public class CourseController {
     private final CourseService courseService;
 
     @PostMapping
-    public ResponseEntity<CourseDTO> saveCourse(@RequestParam Long courseCode,
-                                                @RequestParam String courseName,
-                                                @RequestParam ProfessorEntity professor) {
-        CourseDTO courseDTO = courseService.addCourse(courseCode, courseName, professor);
-        return ResponseEntity.status(HttpStatus.CREATED).body(courseDTO);
+    public ResponseEntity<CourseDTO> saveCourse(@RequestBody CourseDTO courseDTO) {
+        CourseDTO course = courseService.addCourse(courseDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(course);
     }
 
     @GetMapping("/all")

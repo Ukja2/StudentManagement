@@ -1,6 +1,6 @@
 package com.example.lion.grade;
 
-import com.example.lion.enrollment.EnrollmentEntity;
+import com.example.lion.enrollment.EnrollmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +11,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GradeService {
     private final GradeRepository gradeRepository;
+    private final EnrollmentRepository enrollmentRepository;
 
-    public GradeDTO addGrade(String gradeValue, EnrollmentEntity enrollment) {
-        GradeEntity grade = gradeRepository.save(GradeEntity.builder()
-                .gradeValue(gradeValue)
-                .enrollment(enrollment)
-                .build());
-        return grade.toDTO();
+    public GradeDTO addGrade(GradeDTO gradeDTO) {
+        GradeDTO grade = gradeRepository.save(GradeEntity.builder()
+                .gradeValue(gradeDTO.getGradeValue())
+                .enrollment(enrollmentRepository.findById(gradeDTO.getEnrollment())
+                        .orElseThrow(() -> new RuntimeException("Enrollment not found")))
+                .build()).toDTO();
+        return grade;
     }
 
     public List<GradeDTO> getAllGrade() {
@@ -28,15 +30,16 @@ public class GradeService {
         return gradeDTO;
     }
 
-    public GradeDTO updateGrade(Long gradeId, String gradeValue, EnrollmentEntity enrollment) {
-        GradeEntity grade = gradeRepository.findById(gradeId)
+    public GradeDTO updateGrade(GradeDTO gradeDTO) {
+        GradeEntity grade = gradeRepository.findById(gradeDTO.getGradeId())
                 .orElseThrow(() -> new RuntimeException("Grade not found"));
-        grade.setGradeValue(gradeValue);
-        grade.setEnrollment(enrollment);
+        grade.setGradeValue(gradeDTO.getGradeValue());
+        grade.setEnrollment(enrollmentRepository.findById(gradeDTO.getEnrollment())
+                .orElseThrow(() -> new RuntimeException("Enrollment not found")));
         return gradeRepository.save(grade).toDTO();
     }
 
-    public void deleteGrade(Long enrollment) {
-        gradeRepository.deleteById(enrollment);
+    public void deleteGrade(GradeDTO grade) {
+        gradeRepository.deleteById(grade.getEnrollment());
     }
 }
