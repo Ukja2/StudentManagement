@@ -12,8 +12,8 @@ public class StudentController {
     private final StudentService studentService;
 
     @GetMapping
-    public ResponseEntity<StudentEntity> getStudent(@RequestParam Long studentId) {
-        StudentEntity studentEntity = studentService.getStudent(studentId);
+    public ResponseEntity<StudentDTO> getStudent(@RequestParam Long studentId) {
+        StudentDTO studentEntity = studentService.getStudent(studentId).toDTO();
         return ResponseEntity.ok(studentEntity);
     }
     @PostMapping
