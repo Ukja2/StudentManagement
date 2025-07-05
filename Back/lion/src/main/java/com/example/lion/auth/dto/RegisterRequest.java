@@ -1,11 +1,17 @@
 package com.example.lion.auth.dto;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class RegisterRequest {
-    private String id;
+    private String email;
     private String password;
     private String name;
-    private String department; // 학과 필드 추가
+    private String department;
+    private String role; // "student" 또는 "professor"
 }
+

@@ -31,8 +31,8 @@ public class StudentEntity {
     @Column
     private String studentDepartment;
 
-    @OneToMany(mappedBy = "student_id", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<EnrollmentEntity> enrollment;
+//    @OneToMany(mappedBy = "student_id", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<EnrollmentEntity> enrollment;
 
 
 

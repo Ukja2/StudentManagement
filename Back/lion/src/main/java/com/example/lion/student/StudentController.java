@@ -6,14 +6,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/student")
 @RequiredArgsConstructor
 public class StudentController {
     private final StudentService studentService;
 
     @GetMapping
-    public ResponseEntity<StudentDTO> getStudent(@RequestParam Long studentId) {
-        StudentDTO studentEntity = studentService.getStudent(studentId).toDTO();
+    public ResponseEntity<StudentDTO> getStudent(@RequestParam String email) {
+        StudentDTO studentEntity = studentService.getStudent(email).toDTO();
         return ResponseEntity.ok(studentEntity);
     }
     @PostMapping

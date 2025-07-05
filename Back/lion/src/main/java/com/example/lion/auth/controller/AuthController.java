@@ -37,22 +37,19 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest request) {
-        String role = request.getRole();
-        String id = request.getId();
+        String email = request.getEmail();
         String password = request.getPassword();
 
-        if ("student".equalsIgnoreCase(role)) {
-            boolean result = authService.loginStudent(id, password);
+        if (authService.existsStudent(email)) {
+            boolean result = authService.loginStudent(email, password);
             return result ?
                     ResponseEntity.ok("학생 로그인 성공!") :
                     ResponseEntity.badRequest().body("학생 로그인 실패");
-        } else if ("professor".equalsIgnoreCase(role)) {
-            boolean result = authService.loginProfessor(id, password);
+        } else {
+            boolean result = authService.loginProfessor(email, password);
             return result ?
                     ResponseEntity.ok("교수 로그인 성공!") :
                     ResponseEntity.badRequest().body("교수 로그인 실패");
-        } else {
-            return ResponseEntity.badRequest().body("role 값이 잘못되었습니다. student 또는 professor 로 설정해주세요.");
         }
     }
 }

@@ -31,6 +31,10 @@ public class AuthService {
         professorRepository.save(professor);
     }
 
+    public boolean existsStudent(String email) {
+        return studentRepository.existsById(email);
+    }
+
     public boolean loginStudent(String email, String password) {
         return studentRepository.findByStudentEmail(email)
                 .map(student -> student.getStudentPassword().equals(password))
