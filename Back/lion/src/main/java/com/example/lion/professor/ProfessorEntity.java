@@ -37,7 +37,6 @@ public class ProfessorEntity {
         return ProfessorDTO.builder()
                 .professorId(professorId)
                 .professorName(professorName)
-                .professorPassword(professorPassword)
                 .professorEmail(professorEmail)
                 .professorDepartment(professorDepartment)
                 .build();

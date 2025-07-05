@@ -1,6 +1,6 @@
 package com.example.lion.student;
 
-import com.example.lion.enrollment.EnrollermentEntity;
+import com.example.lion.enrollment.EnrollmentEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,10 +29,10 @@ public class StudentEntity {
     private String studentPassword;
 
     @Column
-    private String department;
+    private String studentDepartment;
 
     @OneToMany(mappedBy = "student_id", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<EnrollermentEntity> enrollment;
+    private List<EnrollmentEntity> enrollment;
 
 
 
@@ -41,8 +41,7 @@ public class StudentEntity {
                 .studentId(studentId)
                 .studentName(studentName)
                 .studentEmail(studentEmail)
-                .studentPassword(studentPassword)
-                .department(department)
+                .studentDepartment(studentDepartment)
                 .build();
     }
 }

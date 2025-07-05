@@ -14,7 +14,7 @@ public class StudentService {
                 .studentName(studentName)
                 .studentEmail(studentEmail)
                 .studentPassword(studentPassword)
-                .department(department)
+                .studentDepartment(department)
                 .build());
     }
 

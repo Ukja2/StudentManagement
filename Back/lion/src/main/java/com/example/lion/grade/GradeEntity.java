@@ -19,9 +19,10 @@ public class GradeEntity {
     @Column
     private String gradeValue;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "enrollment_id")
     private EnrollmentEntity enrollment;
+
 
     public GradeDTO toDTO() {
         return GradeDTO.builder()

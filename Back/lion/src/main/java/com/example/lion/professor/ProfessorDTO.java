@@ -10,7 +10,6 @@ import lombok.*;
 public class ProfessorDTO {
     private Long professorId;
     private String professorName;
-    private String professorPassword;
     private String professorEmail;
     private String professorDepartment;
 }

@@ -42,7 +42,6 @@ public class ProfessorService {
         ProfessorEntity professor = professorRepository.findById(professorDTO.getProfessorId())
                 .orElseThrow(() -> new RuntimeException("Professor not found"));
         professor.setProfessorName(professorDTO.getProfessorName());
-        professor.setProfessorPassword(professorDTO.getProfessorPassword());
         professor.setProfessorEmail(professorDTO.getProfessorEmail());
         professor.setProfessorDepartment(professorDTO.getProfessorDepartment());
         return professorRepository.save(professor).toDTO();
