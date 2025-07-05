@@ -18,8 +18,8 @@ public class StudentService {
                 .build());
     }
 
-    public StudentEntity getStudent(Long studentId) {
-        return studentRepository.findById(studentId)
+    public StudentEntity getStudent(String email) {
+        return studentRepository.findByStudentEmail(email)
                 .orElseThrow(()-> new RuntimeException("Student not found"));
     }
 }

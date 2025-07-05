@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/enrollment")
 @RequiredArgsConstructor
 public class EnrollmentController {
     private final EnrollmentService enrollmentService;
@@ -24,22 +24,22 @@ public class EnrollmentController {
     }
 
     @PostMapping
-    public ResponseEntity<EnrollmentDTO> saveEnrollment(@RequestParam StudentEntity student,
-                                                        @RequestParam CourseEntity course) {
+    public ResponseEntity<EnrollmentDTO> saveEnrollment(@RequestBody StudentEntity student,
+                                                        @RequestBody CourseEntity course) {
         EnrollmentDTO enrollmentDTO = enrollmentService.addEnrollment(student, course);
         return ResponseEntity.status(HttpStatus.CREATED).body(enrollmentDTO);
     }
 
     @PatchMapping
-    public ResponseEntity<EnrollmentDTO> updateEnrollment(@RequestParam Long enrollmentId,
-                                                          @RequestParam StudentEntity student,
-                                                          @RequestParam CourseEntity course) {
+    public ResponseEntity<EnrollmentDTO> updateEnrollment(@RequestBody Long enrollmentId,
+                                                          @RequestBody StudentEntity student,
+                                                          @RequestBody CourseEntity course) {
         EnrollmentDTO enrollment = enrollmentService.updateEnrollment(enrollmentId, student, course);
         return ResponseEntity.ok(enrollment);
     }
 
     @DeleteMapping
-    public ResponseEntity<Long> deleteEnrollment(@RequestParam Long enrollmentId) {
+    public ResponseEntity<Long> deleteEnrollment(@RequestBody Long enrollmentId) {
         enrollmentService.deleteEnrollment(enrollmentId);
         return ResponseEntity.ok(enrollmentId);
     }

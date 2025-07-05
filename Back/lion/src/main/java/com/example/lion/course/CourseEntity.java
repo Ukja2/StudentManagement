@@ -29,7 +29,7 @@ public class CourseEntity {
     @JoinColumn(name = "professorId")
     private ProfessorEntity professor;
 
-    @OneToMany(mappedBy = "course_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EnrollmentEntity> enrollment;
 
     public CourseDTO toDTO() {

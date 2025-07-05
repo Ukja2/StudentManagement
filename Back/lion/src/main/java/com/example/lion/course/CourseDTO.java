@@ -10,6 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 public class CourseDTO {
     private Long courseId;
+
     private Long courseCode;
     private String courseName;
     private ProfessorEntity professor;
