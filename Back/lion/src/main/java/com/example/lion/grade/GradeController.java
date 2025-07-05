@@ -1,6 +1,5 @@
 package com.example.lion.grade;
 
-import com.example.lion.enrollment.EnrollmentEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +14,9 @@ public class GradeController {
     private final GradeService gradeService;
 
     @PostMapping
-    public ResponseEntity<GradeDTO> addGrade(@RequestBody String gradeValue,
-                                             @RequestParam EnrollmentEntity enrollment) {
-        GradeDTO grade = gradeService.addGrade(gradeValue, enrollment);
-        return ResponseEntity.status(HttpStatus.CREATED).body(grade);
+    public ResponseEntity<GradeDTO> addGrade(@RequestBody GradeDTO grade) {
+        GradeDTO gradeDTO = gradeService.addGrade(grade);
+        return ResponseEntity.status(HttpStatus.CREATED).body(gradeDTO);
     }
 
     @GetMapping
@@ -28,16 +26,14 @@ public class GradeController {
     }
 
     @PatchMapping
-    public ResponseEntity<GradeDTO> updateGrade(@RequestParam Long gradeId,
-                                                @RequestParam String gradeValue,
-                                                @RequestParam EnrollmentEntity enrollment) {
-        GradeDTO grade = gradeService.updateGrade(gradeId, gradeValue, enrollment);
+    public ResponseEntity<GradeDTO> updateGrade(@RequestBody GradeDTO gradeDTO) {
+        GradeDTO grade = gradeService.updateGrade(gradeDTO);
         return ResponseEntity.ok(grade);
     }
 
     @DeleteMapping
-    public ResponseEntity<String> deleteGrade(@RequestParam EnrollmentEntity enrollment) {
-        gradeService.deleteGrade(enrollment.getEnrollmentId());
+    public ResponseEntity<String> deleteGrade(@RequestBody GradeDTO gradeDTO) {
+        gradeService.deleteGrade(gradeDTO);
         return ResponseEntity.ok("삭제 성공");
     }
 }
