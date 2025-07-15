@@ -19,22 +19,20 @@ public class StudentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private java.lang.Long studentId;
 
-    @Column
+    @Column(nullable = false)
     private String studentName;
 
-    @Column
+    @Column(nullable = false, unique = true)
     private String studentEmail;
 
-    @Column
+    @Column(nullable = false)
     private String studentPassword;
 
-    @Column
+    @Column(nullable = false)
     private String studentDepartment;
 
 //    @OneToMany(mappedBy = "student_id", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private List<EnrollmentEntity> enrollment;
-
-
 
     public StudentDTO toDTO() {
         return StudentDTO.builder()
