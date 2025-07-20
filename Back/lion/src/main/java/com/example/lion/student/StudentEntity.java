@@ -1,10 +1,7 @@
 package com.example.lion.student;
 
-import com.example.lion.enrollment.EnrollmentEntity;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
 
 @Entity
 @Table(name = "student")
@@ -17,7 +14,7 @@ import java.util.List;
 public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private java.lang.Long studentId;
+    private Long studentId;
 
     @Column(nullable = false)
     private String studentName;
